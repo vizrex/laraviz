@@ -1,4 +1,3 @@
-
 > # READ THIS FIRST
 > It is highly recommended for all contributors to update this file whenever there's a major update in source code. Use [this tool](https://stackedit.io/app#) for easy editing or [visit this page](https://help.github.com/articles/basic-writing-and-formatting-syntax/) for comprehensive guide on markdown syntax.
 
@@ -32,14 +31,15 @@ It has the implementation of basic methods related to a resource:
 
 ### BaseMigration
 This class can be extended by Laravel migration classes. Child class would need to implement following three methods:
-	- `__construct()`
-	It should call `parent::__construct("my_table")` where `my_table` should be replaced with appropriate table name. It is highly recommended to get this string by calling `getTableName()` of a model for which this migration is intended.
-	- `doChanges()`
-	This method will get an object of `Blueprint`. Developer can write the schema related statements straightforwardly without worrying about existence and non-existence of table. Use it as substitute of traditional `up()` method. However `up()` method can also be overridden if required.
-	- `undoChanges()`
-	This function gets the table name as parameter. Use it as substitute of traditional `down()` method. However the later can still be overridden when required.
-### BaseSeeder
+- `__construct()`
+It should call `parent::__construct("my_table")` where `my_table` should be replaced with appropriate table name. It is highly recommended to get this string by calling `getTableName()` of a model for which this migration is intended.
 
+- `doChanges()`
+This method will get an object of `Blueprint`. Developer can write the schema related statements straightforwardly without worrying about existence and non-existence of table. Use it as substitute of traditional `up()` method. However `up()` method can also be overridden if required.
+- `undoChanges()`
+This function gets the table name as parameter. Use it as substitute of traditional `down()` method. However the later can still be overridden when required.
+
+### BaseSeeder
 ### BaseTrait: LaravizModel
 Use this trait in Eloquent Models and override `findByIdentifier()` method. There can be more than one identifiers of a model e.g. a user can be identified by its `id` as well as by `email` attribute. So instead of writing `orWhere` clauses, `findByIdentifier()` method can be called neatly.
 
