@@ -1,0 +1,38 @@
+{
+    "name": "vizrex/laraviz",
+    "description": "A base package with various helpers and abstract classes, acting as a foundation and a standard for other packages.",
+    "type": "laravel-package",
+    "authors": [{
+        "name": "Vizrex",
+        "email": "laravel@vizrex.com"
+    }],
+    "require": {
+        "php": ">=7.0.0",
+        "laravel/framework": "5.5.*",
+        "illuminate/support": "~5"
+    },
+    "require-dev": {},
+    "autoload": {
+        "psr-4": {
+            "Vizrex\\Laraviz\\": "src/"
+        },
+        "files": [
+            "src/Helpers/StringHelpers.php",
+            "src/Helpers/SystemHelpers.php",
+            "src/Helpers/EloquentHelpers.php",
+            "src/Helpers/HtmlHelpers.php",
+            "src/Helpers/PathHelpers.php"
+        ]
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Vizrex\\Laraviz\\LaravizServiceProvider"
+            ]
+        },
+        "branch-alias": {
+            "dev-master": "dev"
+        }
+    },
+    "minimum-stability": "stable"
+}
