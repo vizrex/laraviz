@@ -13,5 +13,10 @@
  * @author Zeshan
  */
 
-Route::get('/time', "\\Vizrex\\Laraviz\\Http\\Controllers\\LaravizController@now")->name("system.time");
-Route::get('/info', "\\Vizrex\\Laraviz\\Http\\Controllers\\LaravizController@phpInfo")->name("system.info");
+Route::get(config("laraviz.routes.time.endpoint", "/time"), "\\Vizrex\\Laraviz\\Http\\Controllers\\LaravizController@now")
+    ->name(config("laraviz.routes.time.name"))
+    ->middleware(config("laraviz.routes.time.middleware", null));
+
+Route::get(config("laraviz.routes.info.endpoint", "/info"), "\\Vizrex\\Laraviz\\Http\\Controllers\\LaravizController@phpInfo")
+    ->name(config("laraviz.routes.info.name", "system.info"))
+    ->middleware(config("laraviz.routes.info.middleware", null));

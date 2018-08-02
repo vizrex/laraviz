@@ -23,18 +23,21 @@ class LaravizServiceProvider extends BaseServiceProvider
     
     public function boot()
     {
-        $dir = __DIR__.'/../';
-        
-        // Routes
-        require $dir.'routes/web.php';
-        
-        // Load Routes
-        $this->loadRoutesFrom($dir.'routes/web.php');
-        
-        // Load Migrations
-        $this->loadMigrationsFrom($dir.'database/migrations');
+        $dir = __DIR__.'/..';
         
         // Configuration Files
-        $this->mergeConfigFrom($dir.'config/laraviz.php', 'laraviz');
+        $this->mergeConfigFrom("$dir/config/laraviz.php", 'laraviz');
+        
+        // Routes
+        require "$dir/routes/web.php";
+        
+        // Load Routes
+        $this->loadRoutesFrom("$dir/routes/web.php");
+        
+        // Load Migrations
+        $this->loadMigrationsFrom("$dir/database/migrations");
+        
+        // Publish Config file
+        $this->publishes(["$dir/config/laraviz.php" => config_path("laraviz.php")], self::getNamespace());
     }
 }

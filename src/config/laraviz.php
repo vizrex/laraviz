@@ -7,12 +7,24 @@
  *  Queries are welcomed at copyright@vizrex.com
  */
 
-/**
- * Description of laraviz
- *
- * @author Zeshan
- */
-
 return [
+    /*
+     * Default routes can be customized below.
+     * You may wish to add roles or permissions middleware, change its alias or 
+     * endpoint address.
+     */
     
+    "routes" => [
+        "time" => [
+            "endpoint" => "/time",  // Part of url
+            "middleware" => null,   // Middleware
+            "name" => "system.time" // Alias
+        ],
+        
+        "info" => [
+            "endpoint" => "/info",  // Part of url
+            "middleware" => null,   // Middleware
+            "name" => "system.info" // Alias
+        ]
+    ]
 ];

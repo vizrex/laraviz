@@ -51,6 +51,12 @@ It returns current datetime with timezone details as JSON string.
 ### `/info`
 It returns the output of `phpinfo()`
 
+These routes can be customized using config/laraviz.php file. Execute the following command to publish this config file:
+
+``` bash
+php artisan vendor:publish --tag=Vizrex_Laraviz
+```
+
 # Added Helpers
 ## Eloquent Helpers
 ### `get_fillables()`
