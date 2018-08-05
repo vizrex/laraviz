@@ -18,9 +18,19 @@ function public_url()
     return url('/public');
 }
 
-function css($absolutePath)
+function css($absolutePathOrArray)
 {
-    echo "<link rel='stylesheet' href='".$absolutePath."'>";
+    if(is_array($absolutePathOrArray))
+    {
+        foreach($absolutePathOrArray as $entry)
+        {
+            is_array($entry) && $entry[0] ? css($entry[0]) : css($entry);
+        }
+    }
+    else
+    {
+        echo "<link rel='stylesheet' href='".$absolutePathOrArray."'>";
+    }
 }
 
 function public_css($relativePath)
@@ -28,9 +38,19 @@ function public_css($relativePath)
     css(merge_url(public_url().'/css/', $relativePath));
 }
 
-function js($absolutePath)
+function js($absolutePathOrArray)
 {
-    echo "<script type='text/javascript' src='".$absolutePath."'></script>";
+    if(is_array($absolutePathOrArray))
+    {
+        foreach($absolutePathOrArray as $entry)
+        {
+            is_array($entry) && $entry[0] ? js($entry[0]) : js($entry);
+        }
+    }
+    else
+    {
+        echo "<script type='text/javascript' src='".$absolutePathOrArray."'></script>";
+    }
 }
 
 function public_js($relativePath)

@@ -26,5 +26,10 @@ return [
             "middleware" => null,   // Middleware
             "name" => "system.info" // Alias
         ]
-    ]
+    ],
+    
+    /*
+     * s() helper method will always use this file while calling __() method
+     */
+    "default_translations_file" => "strings"    
 ];

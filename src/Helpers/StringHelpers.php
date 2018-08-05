@@ -15,3 +15,8 @@ function str_concat(...$strings)
 {
     return implode("", $strings);
 }
+
+function s($key, $replace = [], $locale = null)
+{
+    return trans(config("laraviz.default_translations_file").".$key", $replace, $locale);
+}
