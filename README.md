@@ -51,6 +51,12 @@ It returns current datetime with timezone details as JSON string.
 ### `/info`
 It returns the output of `phpinfo()`
 
+These routes can be customized using config/laraviz.php file. Execute the following command to publish this config file:
+
+``` bash
+php artisan vendor:publish --tag=Vizrex_Laraviz
+```
+
 # Added Helpers
 ## Eloquent Helpers
 ### `get_fillables()`
@@ -60,12 +66,17 @@ It returns the fillable attributes as an associative array having `key` and `val
 ### `public_url()`
 Returns base URL of application.
 
-### `css($absolutePath)`
-Adds the HTML tag for including CSS.
+### `css($absolutePathOrArray)`
+Adds the HTML tag for including CSS. You can pass either an string, an array or an associative array where the key should contain the URL of CSS and the value should contain an expression such that CSS would be included only when the expression yields to true.
+``` php
+css("http://sample-cdn.com/example.css");
+css(["http://abc.com/first.css", "http://abc.com/second.css"]);
+css(["http://abc.com/first.css", ["http://abc.com/second.css" => 1 > 2], "http://www.example.com/main.css"]);
+```
 ###  `public_css($relativePath)`
 Adds the HTML tag for including css relative to `public/css` folder.
-### `js($absolutePath)`
-Adds the HTML tag for including Javascript file.
+### `js($absolutePathOrArray)`
+Adds the HTML tag for including Javascript file. See the description of `css()` method. This method works exactly like that.
 ### `public_js($relativePath)`
 Adds the HTML tag for including js relative to `public/js` 
 ## Path Helpers
@@ -75,6 +86,9 @@ Currently it simply concatenates two string and adds a forward slash `/` between
 ## String Helpers
 ### `str_concat()`
 This function accepts variable number of parameters and concatenates.
+
+### `s()`
+This helper method is a wrapper on `trans()` and `__()` methods of Laravel. Using this method will eliminate the need of specifying language/translations file name every time. Simply specify a default language file in `config/laraviz.php` file and only pass the `key` to `s()` method. It will simply concatenate the configured file name to the given key and pass it to `trans()` method.
 
 ## System Helpers
 Following methods have very basic implementation. They're sort of thin wrappers. However there's a lot of room for enhancements
