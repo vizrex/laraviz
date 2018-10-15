@@ -9,7 +9,8 @@
     "require": {
         "php": ">=7.0.0",
         "laravel/framework": "5.5.*",
-        "illuminate/support": "~5"
+        "illuminate/support": "~5",
+        "bensampo/laravel-enum": "^1.15"
     },
     "require-dev": {},
     "autoload": {

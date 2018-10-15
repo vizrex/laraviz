@@ -25,7 +25,6 @@ class BaseRepository
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
      */
     public function index()
     {
@@ -34,13 +33,10 @@ class BaseRepository
 
     /**
      * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(array $attributes)
     {
-        return $this->model::create($request->all());
+        return $this->model::create($attributes);
     }
 
     /**
@@ -49,7 +45,6 @@ class BaseRepository
      * @param  int  $identifier
      * @param  array $cols Columns to select
      * @params function $extraClauses Query will be passed to this closure
-     * @return \Illuminate\Http\Response
      */
     public function find($identifier, array $cols = ['*'], Closure $queryProcessor = null)
     {
@@ -59,16 +54,13 @@ class BaseRepository
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $identifier
-     * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $identifier)
+    public function update($identifier, array $attributes)
     {
         $model = $this->find($identifier);
         if($model !== null)
         {
-            $model->fill($request->all());
+            $model->fill($attributes);
             $model->save();
         }
         
@@ -79,7 +71,6 @@ class BaseRepository
      * Remove the specified resource from storage.
      *
      * @param  int  $identifier
-     * @return \Illuminate\Http\Response
      */
     public function destroy($identifier)
     {
