@@ -1,6 +1,6 @@
 <?php
 
-namespace Vizrex\Http\Resources;
+namespace Vizrex\Laraviz\Http\Resources;
 
 use App\Enums\ResponseType;
 use Illuminate\Http\Resources\Json\Resource;
