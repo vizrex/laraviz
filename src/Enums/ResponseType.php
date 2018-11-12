@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Enums;
+namespace Vizrex\Laraviz\Enums;
 
 use BenSampo\Enum\Enum;
 

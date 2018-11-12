@@ -2,7 +2,7 @@
 
 namespace Vizrex\Laraviz\Http\Resources;
 
-use App\Enums\ResponseType;
+use Vizrex\Laraviz\Enums\ResponseType;
 use Illuminate\Http\Resources\Json\Resource;
 
 class BaseResource extends Resource
@@ -11,7 +11,7 @@ class BaseResource extends Resource
     private $responseType;
     
     
-    public function __construct($resource, $responseType)
+    public function __construct($resource, $responseType = null)
     {
         if(empty($responseType))
             $responseType = self::$defaultResponseType;

@@ -48,7 +48,7 @@ class BaseRepository
      */
     public function find($identifier, array $cols = ['*'], Closure $queryProcessor = null)
     {
-        return $this->model::findByIdentifier($identifier, $cols, $queryProcessor);
+        return $this->model->findByIdentifier($identifier, $cols, $queryProcessor);
     }
 
     /**
@@ -57,7 +57,7 @@ class BaseRepository
      */
     public function update($identifier, array $attributes)
     {
-        $model = $this->find($identifier);
+        $model = $this->find($identifier)->first();
         if($model !== null)
         {
             $model->fill($attributes);
