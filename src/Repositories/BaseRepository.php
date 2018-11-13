@@ -57,7 +57,7 @@ class BaseRepository
      */
     public function update($identifier, array $attributes)
     {
-        $model = $this->find($identifier)->first();
+        $model = $this->find($identifier);
         if($model !== null)
         {
             $model->fill($attributes);
