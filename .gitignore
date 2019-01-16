@@ -1,5 +1,6 @@
 /nbproject
 /vendor/
+/src/vendor
 /composer.lock
 /*.out
 /*.rdb
