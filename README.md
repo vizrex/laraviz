@@ -43,6 +43,19 @@ This function gets the table name as parameter. Use it as substitute of traditio
 ### BaseTrait: LaravizModel
 Use this trait in Eloquent Models and override `findByIdentifier()` method. There can be more than one identifiers of a model e.g. a user can be identified by its `id` as well as by `email` attribute. So instead of writing `orWhere` clauses, `findByIdentifier()` method can be called neatly.
 
+### Base Resource
+This class has following two additional methods as compared to default `Resource` of Laravel:
+- `toCompactArray`
+- `toFullArray`
+
+There're two properties of this class:
+#### Static: `$defaultResponseType`
+Default response type can be set with this property (default is `ResponseType::FULL`)
+
+#### Non-static: `$responseType`
+This property overrides the `$defaultResponseType` and can be set only via constructor.
+
+
 # Default Routes
 Following open routes will be added to the application using this package:
 ### `/time`

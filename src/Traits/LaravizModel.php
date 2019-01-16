@@ -23,6 +23,6 @@ trait LaravizModel
     {
         $query = self::where("id", $identifier);
         $queryProcessor === null || $queryProcessor($query);
-        return $query->get($cols);
+        return $query->first($cols);
     }
 }

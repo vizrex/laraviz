@@ -5,6 +5,11 @@
 
 > The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## 1.0.2
+- Added `bensampo/laravel-enum` package
+- Added `BaseResource`
+- `BaseRepository` now work only on data rather than mix of data and HTTP request
+
 ## 1.0.1
 - Added support for including multiple CSS and JS files at once
 - Added `s()` helper method
