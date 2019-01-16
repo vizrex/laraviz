@@ -2,6 +2,7 @@
     "name": "vizrex/laraviz",
     "description": "A base package with various helpers and abstract classes, acting as a foundation and a standard for other packages.",
     "type": "laravel-package",
+    "license": "proprietary",
     "authors": [{
         "name": "Vizrex",
         "email": "laravel@vizrex.com"
