@@ -28,10 +28,7 @@
             "providers": [
                 "Vizrex\\Laraviz\\LaravizServiceProvider"
             ]
-        },
-        "branch-alias": {
-            "dev-master": "dev"
         }
     },
-    "minimum-stability": "stable"
+    "minimum-stability": "dev"
 }
